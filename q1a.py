@@ -45,8 +45,8 @@ def calc_sum3(k, x, n):
 
 def main():
 	parser = argparse.ArgumentParser()
-	parser.add_argument('-inp', type=argparse.FileType('r'), required=True)
-	parser.add_argument('-out', type=argparse.FileType('w'), required=True)
+	parser.add_argument('-inp', type=argparse.FileType('r', encoding='UTF-8'), required=True)
+	parser.add_argument('-out', type=argparse.FileType('w', encoding='UTF-8'), required=True)
 	args = parser.parse_args()
 	fin = args.inp
 	fout = args.out

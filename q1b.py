@@ -4,7 +4,7 @@ import argparse
 
 def main():
 	parser = argparse.ArgumentParser()
-	parser.add_argument('-m', type=argparse.FileType('r'), required=True)
+	parser.add_argument('-m', type=argparse.FileType('r', encoding='UTF-8'), required=True)
 	args = parser.parse_args()
 	fin = args.m
 	n = int(fin.readline())

@@ -3,8 +3,8 @@ from collections import Counter
 
 def main():
 	parser = argparse.ArgumentParser()
-	parser.add_argument('-ca', type=argparse.FileType('r'), required=True)
-	parser.add_argument('-ch', type=argparse.FileType('r'), required=True)
+	parser.add_argument('-ca', type=argparse.FileType('r', encoding='UTF-8'), required=True)
+	parser.add_argument('-ch', type=argparse.FileType('r', encoding='UTF-8'), required=True)
 	args = parser.parse_args()
 	fca = args.ca
 	fch = args.ch
