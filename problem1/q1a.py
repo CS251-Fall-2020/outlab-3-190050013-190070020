@@ -2,11 +2,11 @@ import argparse
 from ring import *
 
 def calc_sum1(k, x, n):
-	term = RingInt(0, n) 
+	term = RingInt(0, n)
 	sum = RingInt(0, n)
 	for i in range(0, k):
 		term_x = RingInt(x, n)
-		term_x = term_x^i
+		term_x = term_x**i
 		term_i = RingInt(1, n)
 		for j in range(2, i+1):
 			term_i *= RingInt(j, n)
@@ -18,11 +18,11 @@ def comb(n, k, m):
 	fact_n = RingInt(1, m)
 	fact_k = RingInt(1, m)
 	fact_n_k = RingInt(1, m)
-	for i in range(2, n+1):
+	for i in range(1, n+1):
 		fact_n*=RingInt(i, m)
-	for i in range(2, k+1):
+	for i in range(1, k+1):
 		fact_k*=RingInt(i, m)
-	for i in range(2, n-k+1):
+	for i in range(1, n-k+1):
 		fact_n_k*=RingInt(i, m)
 	return fact_n/(fact_k*fact_n_k)
 
@@ -31,7 +31,7 @@ def calc_sum2(k, x, n):
 	for i in range(0, k):
 		term = RingInt(0, n)
 		for j in range(0, i+1):
-			term+=comb(x+i-1, j, n)
+			term+=comb(x+i, j, n)
 		sum*=term
 	return sum
 
@@ -39,18 +39,17 @@ def calc_sum3(k, x, n):
 	sum = RingInt(0, n)
 	for i in range(1, k+1):
 		term = RingInt(i, n)
-		for j in range(0, x):
-			term*=term
+		term = term**x
 		sum+=term
 	return sum
 
 def main():
 	parser = argparse.ArgumentParser()
-	parser.add_argument("-in","--infile")
-	parser.add_argument("-out","--outfile")
+	parser.add_argument('-inp', type=argparse.FileType('r'), required=True)
+	parser.add_argument('-out', type=argparse.FileType('w'), required=True)
 	args = parser.parse_args()
-	fin = open(args.infile, 'r')
-	fout = open(args.outfile, 'w')
+	fin = args.inp
+	fout = args.out
 
 	for line in fin:
 		linelist = line.split();
@@ -71,8 +70,8 @@ def main():
 				fout.write(str(calc_sum3(linelist[0], linelist[1], linelist[2]))+"\n")
 			except:
 				fout.write("UNDEFINED"+"\n")
-	fin.close
-	fout.close
+	fin.close()
+	fout.close()
 
 if __name__=="__main__":
 	main()

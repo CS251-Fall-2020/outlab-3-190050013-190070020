@@ -4,7 +4,7 @@ import argparse
 
 def main():
 	parser = argparse.ArgumentParser()
-	parser.add_argument('-m', type=argparse.FileType('r', encoding='UTF-8'), required=True)
+	parser.add_argument('-m', type=argparse.FileType('r'), required=True)
 	args = parser.parse_args()
 	fin = args.m
 	n = int(fin.readline())
@@ -20,10 +20,11 @@ def main():
 				for i in range(1, len(single_list)+1):
 					sum += RingInt(i, n)*RingInt(int(single_list[i-1]), n)
 				if sum!=RingInt(0, n):
-					Print("CORRUPTED")
+					print("CORRUPTED")
 					return 0
 			print("OK")
 			return 0
+	fin.close()
 
 if __name__=="__main__":
 	main()

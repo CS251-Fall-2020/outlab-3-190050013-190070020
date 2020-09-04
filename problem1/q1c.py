@@ -15,13 +15,13 @@ class Series:
 		term = self.term
 		index = self.index
 
-		if index >= self.k+1:
+		if index >= self.k:
 			raise StopIteration
 
 		self.index = index + 1
-		self.term = term * RingInt(self.x, self.n) / RingInt(self.index, self.n)
+		self.term = term * (RingInt(self.x, self.n) / RingInt(self.index, self.n))
 
-		return self.term
+		return term
 
 def main():
 
