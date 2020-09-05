@@ -47,7 +47,7 @@ def main():
 					for i in range(0, len(single_list_split)):
 						single_list_split[i] = int(single_list_split[i])
 				except:
-						continue
+						break
 				# print(single_list_split)
 				found_at_least_one_matching_pattern = True
 				for i in range(0, len(single_list_split)):
