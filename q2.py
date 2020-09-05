@@ -24,7 +24,7 @@ def print_path(path,output_file):
 def main():
     
     parser = argparse.ArgumentParser()
-    parser.add_argument("-in","--infile")
+    parser.add_argument("-inp","--infile")
     parser.add_argument("-out","--outfile")
     args = parser.parse_args()
 
