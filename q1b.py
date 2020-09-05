@@ -50,14 +50,18 @@ def main():
 						continue
 				# print(single_list_split)
 				found_at_least_one_matching_pattern = True
+				for i in range(0, len(single_list_split)):
+					if single_list_split[i]>=n:
+						print("CORRUPTED")
+						return 0
 				sum = RingInt(0, n)
 				for i in range(1, len(single_list_split)+1):
 					sum += RingInt(i, n)*RingInt(single_list_split[i-1], n)
 				if sum!=RingInt(0, n):
 					print("CORRUPTED")
 					return 0
-	if(found_at_least_one_matching_pattern==True):
-		print("OK")
+	# if(found_at_least_one_matching_pattern==True):
+	print("OK")
 	fin.close()
 
 if __name__=="__main__":
