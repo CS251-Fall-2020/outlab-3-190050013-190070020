@@ -7,3 +7,4 @@ https://www.w3schools.com/python/python_classes.asp
 https://www.programiz.com/python-programming/operator-overloading
 https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiPnOHkvc_rAhXfyzgGHYYBDfkQFjABegQIBxAB&url=http%3A%2F%2Fweb.mit.edu%2Fhackl%2Fwww%2Flab%2Fturkshop%2Fslides%2Fregex-cheatsheet.pdf&usg=AOvVaw0hSF2U9qoy8-ZbEUcPzpWq
 https://docs.python.org/2/library/collections.html
+https://stackoverflow.com/questions/3519565/find-the-indexes-of-all-regex-matches
