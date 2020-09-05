@@ -3,7 +3,7 @@ def rotate(m):
 	l = []
 	for i in range(0, n):
 		ll = []
-		for j in range(0, n):
+		for j in range(n-1, -1, -1):
 			ll.append(m[j][i])
 		l.append(ll)
 	return l
