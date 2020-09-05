@@ -51,7 +51,7 @@ def main():
 				# print(single_list_split)
 				found_at_least_one_matching_pattern = True
 				for i in range(0, len(single_list_split)):
-					if single_list_split[i]>=n:
+					if single_list_split[i]>=n or single_list_split[i]<0:
 						print("CORRUPTED")
 						return 0
 				sum = RingInt(0, n)
