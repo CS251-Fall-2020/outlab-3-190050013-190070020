@@ -50,8 +50,10 @@ class RingInt:
 		x = self.value 
 		if x==0 and a>0:
 			return RingInt(0, self.characteristic)
-		if x==0 and a<=0:
+		if x==0 and a<0:
 			raise ValueError("Operation Not defined")
+		if x==0 and a==0:
+			return RingInt(1, self.characteristic)
 		if a<0:
 			return RingInt(1, self.characteristic)/self**(-a)
 		while a>0 :

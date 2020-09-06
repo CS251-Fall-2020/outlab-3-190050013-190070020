@@ -14,22 +14,24 @@ def calc_sum1(k, x, n):
 		sum += term
 	return sum
 
+def comb(n, k, m):
+	fact_n = RingInt(1, m)
+	fact_k = RingInt(1, m)
+	fact_n_k = RingInt(1, m)
+	for i in range(1, n+1):
+		fact_n*=RingInt(i, m)
+	for i in range(1, k+1):
+		fact_k*=RingInt(i, m)
+	for i in range(1, n-k+1):
+		fact_n_k*=RingInt(i, m)
+	return fact_n/(fact_k*fact_n_k)
+
 def calc_sum2(k, x, n):
 	sum = RingInt(1, n)
 	for i in range(0, k):
 		term = RingInt(0, n)
 		for j in range(0, i+1):
-			fact_xi = RingInt(1, n)
-			fact_j = RingInt(1, n)
-			fact_xi_j = RingInt(1, n)
-			for i in range(1, x+i+1):
-				fact_xi*=RingInt(i, n)
-			for i in range(1, j+1):
-				fact_j*=RingInt(i, n)
-			for i in range(1, x+i-j+1):
-				fact_xi_j*=RingInt(i, m)
-			comb = fact_xi/(fact_j*fact_xi_j)
-			term+=comb
+			term+=comb(x+i, j, n)
 		sum*=term
 	return sum
 
