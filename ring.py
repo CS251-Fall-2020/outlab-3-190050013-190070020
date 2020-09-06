@@ -48,9 +48,12 @@ class RingInt:
 	def __pow__(self, a): 
 		res = 1
 		x = self.value 
-		if x==0: 
+		if x==0 and a>0:
 			return RingInt(0, self.characteristic)
-
+		if x==0 and a<=0:
+			raise ValueError("Operation Not defined")
+		if a<0:
+			return RingInt(1, self.characteristic)/self**(-a)
 		while a>0 :
 			if (a & 1)==1: 
 				res = (res * x) % self.characteristic 
