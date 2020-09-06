@@ -14,7 +14,7 @@ class Node(object):
         """
 
         if self.left is None and self.right is None:
-            return "( )"
+            return "(   )"
         else:
             return "( " + str(self.left) + " " + str(self.right) + " )"
 
